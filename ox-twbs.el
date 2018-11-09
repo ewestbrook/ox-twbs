@@ -1395,6 +1395,8 @@ used in the preamble or postamble."
              (format-time-string org-twbs-metadata-timestamp-format
                                  (if file (nth 5 (file-attributes file))
                                    (current-time)))))
+      (?U . ,(org-export-data (plist-get info :html-link-up) info))
+      (?H . ,(org-export-data (plist-get info :html-link-home) info))
     (?v . ,(or org-twbs-validation-link ""))))
 
 (defun org-twbs--build-pre/postamble (type info)
