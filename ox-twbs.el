@@ -1511,7 +1511,7 @@ holding export options."
      "<div class=\"col-md-12\">")
    ;; Document title.
    (let ((title (plist-get info :title)))
-     (format "<h1 class=\"title\">%s</h1>\n" (org-export-data (or title "") info)))
+     (format "<h1 id=\"title\" class=\"title\">%s</h1>\n" (org-export-data (or title "") info)))
    contents
    "</div>"
    "</div>"
