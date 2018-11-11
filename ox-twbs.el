@@ -189,7 +189,7 @@ html {
 
 body {
     font-size: 18px;
-    margin-bottom: 105px;
+    /* margin-bottom: 105px; */
 }
 
 footer {
