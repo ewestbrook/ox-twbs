@@ -2098,7 +2098,7 @@ holding contextual information."
         (let ((extra-class (org-element-property :HTML_CONTAINER_CLASS headline))
               (level1 (+ level (1- org-twbs-toplevel-hlevel)))
               (first-content (car (org-element-contents headline))))
-          (format "<%s id=\"%s\" class=\"%s\">%s%s</%s>\n"
+          (format "<%s id=\"%s\" class=\"ocon %s\">%s%s</%s>\n"
                   (org-twbs--container headline info)
                   (format "outline-container-%s"
                           (or (org-element-property :CUSTOM_ID headline)
@@ -2797,7 +2797,7 @@ holding contextual information."
                'number-to-string
                (org-export-get-headline-number parent info) "-")))
         ;; Build return value.
-        (format "<div class=\"outline-text-%d\" id=\"text-%s\">\n%s</div>"
+        (format "<div class=\"otxt outline-text-%d\" id=\"text-%s\">\n%s</div>"
                 class-num
                 (or (org-element-property :CUSTOM_ID parent) section-number)
                 (or contents ""))))))
