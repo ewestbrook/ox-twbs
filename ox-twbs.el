@@ -1499,22 +1499,23 @@ holding export options."
            (nth 2 (assq 'content org-twbs-divs))
            (nth 3 (assq 'content org-twbs-divs)))
    ;; Main doc body twbs row
-   "<div class=\"row\">"
+   ;; "<div class=\"row\">"
    ;; Table of contents.
    (let ((depth (plist-get info :with-toc)))
      (when depth
        (concat
-        "<div class=\"col-md-3 col-md-push-9\">"
+        ;; "<div class=\"col-md-3 col-md-push-9\">"
         (org-twbs-toc depth info)
-        "</div>")))
-   (if (plist-get info :with-toc) "<div class=\"col-md-9 col-md-pull-3\">"
-     "<div class=\"col-md-12\">")
+        ;; "</div>"
+        )))
+   ;; (if (plist-get info :with-toc) "<div class=\"col-md-9 col-md-pull-3\">"
+     ;; "<div class=\"col-md-12\">")
    ;; Document title.
    (let ((title (plist-get info :title)))
      (format "<h1 id=\"title\" class=\"title\">%s</h1>\n" (org-export-data (or title "") info)))
    contents
-   "</div>"
-   "</div>"
+   ;; "</div>"
+   ;; "</div>"
    (format "</%s>\n"
            (nth 1 (assq 'content org-twbs-divs)))
    ;; Postamble.
@@ -1721,11 +1722,13 @@ contents as a string, or nil if it is empty."
                  (org-twbs-collect-headlines info depth scope)))
         (outer-tag "nav"))
     (when toc-entries
-      (concat (format "<%s id=\"table-of-contents\">\n" outer-tag)
-              "<div id=\"text-table-of-contents\" class=\"bs-docs-sidebar\">"
-              (org-twbs--toc-text toc-entries)
-              "</div>\n"
-              (format "</%s>\n" outer-tag)))))
+      (concat
+       ;; (format "<%s id=\"table-of-contents\">\n" outer-tag)
+       "<div id=\"text-table-of-contents\">" ;; class=\"bs-docs-sidebar\"
+       (org-twbs--toc-text toc-entries)
+       "</div>\n"
+       ;; (format "</%s>\n" outer-tag)
+       ))))
 
 (defun org-twbs--toc-text (toc-entries)
   "Return innards of a table of contents, as a string.
