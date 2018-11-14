@@ -2786,6 +2786,8 @@ CONTENTS is nil.  INFO is a plist holding contextual information."
   "Transcode a SECTION element from Org to HTML.
 CONTENTS holds the contents of the section.  INFO is a plist
 holding contextual information."
+  (cond
+   ((and contents (not (string= "" contents)))
   (let ((parent (org-export-get-parent-headline section)))
     ;; Before first headline: no container, just return CONTENTS.
     (if (not parent) contents
@@ -2801,6 +2803,7 @@ holding contextual information."
                 class-num
                 (or (org-element-property :CUSTOM_ID parent) section-number)
                 (or contents ""))))))
+   (t "")))
 
 ;;;; Radio Target
 
