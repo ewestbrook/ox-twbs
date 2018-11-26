@@ -1414,7 +1414,7 @@ INFO is a plist used as a communication channel."
   "Format a headline in HTML."
   (let ((section-number
          (when section-number
-           (format "<span class=\"section-number-%d\">%s</span> "
+           (format "<span class=\"secno section-number-%d\">%s</span> "
                    level section-number)))
         (todo (org-twbs--todo todo))
         (tags (org-twbs--tags tags)))
